@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}新しい思い出を投稿する{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post" enctype="multipart/form-data">
+    <label for="title">タイトル</label>
+    <input name="title" id="title" value="{{ request.form['title'] }}" required>
+
+    <label for="body">コメント</label>
+    <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
+    
+    <label for="file">写真を選択</label>
+    <input type="file" name=file id="fileSelct"></input>
+    
+    <input type="submit" value="保存する">
+  </form>
+{% endblock %}

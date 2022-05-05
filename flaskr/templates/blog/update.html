@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}編集する "{{ post['title'] }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="title">タイトル</label>
+    <input name="title" id="title"
+      value="{{ request.form['title'] or post['title'] }}" required>
+    <label for="body">本文</label>
+    <textarea name="body" id="body">{{ request.form['body'] or post['body'] }}</textarea>
+
+    <div><img src="../../{{ post['filepath'] }}" width="600px" height="500px"></div>
+
+
+    <input type="submit" value="保存">
+  </form>
+
+  <hr>
+  <form action="{{ url_for('blog.delete', id=post['id']) }}" method="post">
+    <input class="danger" type="submit" value="削除" onclick="return confirm('本当に削除しますか?');">
+  </form>
+
+  <div class="return">
+    <a href="/">
+      <input type="submit" value="戻る">
+    <a>
+  </div>
+
+{% endblock %}
