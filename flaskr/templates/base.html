@@ -9,7 +9,7 @@
 </head>
 <body>
   <nav>
-    <h1>リア充の為の日記帳だよ</h1>
+    <h1>リア充破壊GRAM</h1>
     <ul>
       {% if g.user %}
         <li><span>こんにちは{{ g.user['username'] }}さん</span>
@@ -31,5 +31,6 @@
     {% block content %}{% endblock %}
   </section>
   
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
 </html>

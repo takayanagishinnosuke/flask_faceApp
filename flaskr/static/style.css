@@ -129,3 +129,10 @@ input[type=submit] {
   align-self: start;
   min-width: 10em;
 }
+
+#create_img{
+ width: 300px;
+ height: 250px;
+ object-fit: scale-down;
+ background-color: #ffffff; 
+}
